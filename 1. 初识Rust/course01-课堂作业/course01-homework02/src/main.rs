@@ -1,5 +1,4 @@
-
-mod level_1;
+mod garden;
 
 
 /**
@@ -9,9 +8,8 @@ mod level_1;
  *（3）使用Cargo编译运行此工程
  *（需要自行发现其中的细节，一个考点是：ascii码字符的顺序）
  */
-
  fn main() {
-    level_1::print_a_to_Z();
-    level_1::level_2::print_A_to_z();
-    
+    garden::print_a_to_Z();
+    println!("");
+    garden::vegetables::print_A_to_z();
 }
