@@ -10,6 +10,23 @@ mod tests {
     fn test0() {
         let a = 10u32;
         let b = a;
-        p
+        println!("{a}");
+        println!("{b}");
+    }
+
+    #[test]
+    fn test1() {
+        let s1 = String::from("I am a superman.");
+        let s2 = s1;
+        //println!("{s1}");   //move
+        println!("{s2}");
+    }
+
+    #[test]
+    fn test2() {
+        let s1 = String::from("I am a superman.");
+        let s2 = s1.clone();
+        println!("{s1}");
+        println!("{s2}");
     }
 }

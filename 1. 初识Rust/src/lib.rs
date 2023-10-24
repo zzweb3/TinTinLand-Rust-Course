@@ -1,10 +1,25 @@
 
 
+#[derive(Debug)]
+struct User {
+    active: bool,
+    userName: String,
+    email: String,
+    age:u64,
+}
+
+#[derive(Debug)]
+enum IpAddrKind {
+    V4,
+    V6,
+}
+
 /**
  * TODO: 第一课 初认Rust-课堂笔记及思考题
  */
 #[cfg(test)]
 mod tests {
+    use super::*;
 
     #[test]
     fn test0() {
@@ -174,7 +189,7 @@ mod tests {
         v.push(8);
         println!("{:#?}", v);
         println!("{:?}", v[3]);
-        println!("{:?}", v[4]);
+        //println!("{:?}", v[4]);
     }
 
     #[test]
@@ -213,13 +228,6 @@ mod tests {
         println!("{:?}", x);
     }
 
-    #[derive(Debug)]
-    struct User {
-        active: bool,
-        userName: String,
-        email: String,
-        age:u64,
-    }
     #[test]
     fn test16() {
         let u = User{
@@ -232,11 +240,6 @@ mod tests {
         println!("{:#?}", u);
     }
 
-    #[derive(Debug)]
-    enum IpAddrKind {
-        V4,
-        V6,
-    }
     #[test]
     fn test17() {
         let four = IpAddrKind::V4;
