@@ -1,7 +1,7 @@
 
 
 /**
- * TODO: 课堂笔记及思考题
+ * TODO: 第一课 初认Rust-课堂笔记及思考题
  */
 #[cfg(test)]
 mod tests {
@@ -157,7 +157,7 @@ mod tests {
     #[test]
     fn test11() {
         let a = [1, 2, 3, 4, 5];
-        let b = a[0];   //TODO: 不会move吗？？？
+        let b = a[0];   //TODO: 因为静态数组是创建在栈中，因为静态数组是固定的，所以，此处知识简单数据copy，不是move
         println!("{:?}", b);
         println!("{:?}", a);
         println!("{:?}", a[0]);

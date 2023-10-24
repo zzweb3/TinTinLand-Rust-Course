@@ -1,5 +1,9 @@
 # TinTinLand-Rust-Course
-TinTinLand Rust 课程笔记-初认识Rust
+TinTinLand Rust 课程笔记-Rust所有权
 
-## 笔记：
-https://drive.google.com/file/d/1SAuc-gSNGPPtSt1KifXoWmxxunQpeBN-/view?pli=1
+## 课件：
+https://drive.google.com/file/d/1WvBBL6thFnqUbHoatjPFdinnL0v7RbLF/view
+
+## 课堂笔记
+
+
