@@ -15,6 +15,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn test1() {
         let s1 = String::from("I am a superman.");
         let s2 = s1;

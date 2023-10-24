@@ -1,5 +1,5 @@
 [package]
-name = "course-01"
+name = "course01"
 version = "0.1.0"
 edition = "2021"
 

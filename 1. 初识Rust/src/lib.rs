@@ -179,6 +179,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn test12() {
         //let v = Vec::new();
         //let v = vec![1, 2, 3];
@@ -189,14 +190,15 @@ mod tests {
         v.push(8);
         println!("{:#?}", v);
         println!("{:?}", v[3]);
-        //println!("{:?}", v[4]);
+        println!("{:?}", v[4]);   //数组越界
     }
 
     #[test]
+    #[ignore]
     fn test13() {
         let v : Vec<u32> = vec![1, 2, 3, 4, 5];
         println!("{:?}", v);
-        let t = v[5];
+        let t = v[5];   //数组越界
         println!("{:?}", t);
     }
 
