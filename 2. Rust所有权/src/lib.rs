@@ -108,4 +108,86 @@ mod tests {
         println!("{s5}");
     }
 
+    #[test]
+    fn test8() {
+        let mut a = 10u32;
+        let b = &mut a;
+        *b = 20;
+
+        println!("{b}");
+        println!("{a}");
+    }
+
+    #[test]
+    #[ignore]
+    fn test9() {
+        let mut a = 10u32;
+        let b = &mut a;
+        *b = 20;
+
+        //println!("{a}"); TODO: immutable borrow occurs here
+        println!("{b}");
+    }
+
+    #[test]
+    fn test10() {
+        let mut a = 10u32;
+        let b = &mut a;
+        *b = 20;
+        let c = &a;
+    }
+
+    #[test]
+    #[ignore]
+    fn test11() {
+        let mut a = 10u32;
+        let b = &mut a;
+        *b = 20;
+        let c = &a;
+
+        //println!("{b}");
+    }
+
+    #[test]
+    #[ignore]
+    fn test12() {
+        let mut a = 10u32;
+        let b = &mut a;
+        *b = 20;
+        let c = &a;
+
+        //println!("{c}");
+    }
+
+    #[test]
+    #[ignore]
+    fn test13() {
+        let mut a = 10u32;
+        let c = &a;
+        let b = &mut a;
+        *b = 20;
+
+        //println!("{c}");
+    }
+
+    #[test]
+    fn test14() {
+        let mut a = 10u32;
+        let c = &a;
+        let b = &mut a;
+        *b = 20;
+
+        println!("{b}");
+    }
+
+    #[test]
+    #[ignore]
+    fn test15() {
+        let mut a = 10u32;
+        let b = &mut a;
+        *b = 20;
+        let d = &mut a;
+        
+        //println!("{b}");
+    }
 }
