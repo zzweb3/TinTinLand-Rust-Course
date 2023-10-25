@@ -123,6 +123,12 @@ fn main() {
 
 ● 一个资源的不可变引用,可以同时存在多个;
 
+可变引用具有排他性
+
+● 不可变引用可以被复制
+
+● 可变引用不能被复制,只能被move
+
 
 
 ##### 例子分析
@@ -179,6 +185,33 @@ fn test15() {
     let d = &mut a;
     
     println!("{b}");
+}
+```
+
+```rust
+\\可变引用不能复制，只能move
+#[test]
+#[ignore]
+fn test16() {
+    let mut a = 10u32;
+    let r1 = &mut a;
+    let r2 = r1;
+
+    println!("{r1}");
+}
+```
+
+```rust
+//不可变引用具有排他性，是原始资源的唯一代理，不可变引用作用域期，所有权也不可用
+#[test]
+#[ignore]
+fn test18() {
+    let mut a = 10u32;
+    let r1 = &mut a;
+    let r2 = r1;
+
+    println!("{a}");
+    println!("{r2}");
 }
 ```
 

@@ -4,6 +4,14 @@ fn foo(s: String) -> String{
     s
 }
 
+fn foo1(s: &String) {
+    println!("in fn foo: {s}");
+}
+
+fn foo2(s: &mut String) {
+    s.push_str(" You are batman.");
+}
+
 #[derive(Debug)]
 struct User {
     man:bool,
@@ -190,4 +198,51 @@ mod tests {
         
         //println!("{b}");
     }
+
+    #[test]
+    #[ignore]
+    fn test16() {
+        let mut a = 10u32;
+        let r1 = &mut a;
+        let r2 = r1;
+
+        //println!("{r1}");
+    }
+
+    #[test]
+    #[ignore]
+    fn test17() {
+        let mut a = 10u32;
+        let r1 = &mut a;
+        let r2 = r1;
+
+        println!("{r2}");
+    }
+
+    #[test]
+    #[ignore]
+    fn test18() {
+        let mut a = 10u32;
+        let r1 = &mut a;
+        let r2 = r1;    //move
+
+        //println!("{a}");
+        println!("{r2}");
+    }
+
+    #[test]
+    fn test19() {
+        let s1 = String::from("I am a superman.");
+        foo1(&s1);
+        println!("{s1}");
+    }
+
+    #[test]
+    fn test20() {
+        let mut s1 = String::from("I am a superman.");
+        println!("{s1}");
+        foo2(&mut s1);
+        println!("{s1}");
+    }
+
 }
