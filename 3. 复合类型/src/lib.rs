@@ -19,13 +19,6 @@ mod tests {
         v.remove(0);
         v.insert(0, String::from("I work hard to learn rust."));
         println!("{:?}", v);
-
-        //TODO:修改数组中第1个值中的部分字符
-        let mut a = &mut v[0];
-        a.remove(a.len()-1);
-        a.push_str(" who saves the world.");
-        
-        println!("{:?}", v);
     }
 
     #[test]
@@ -42,7 +35,6 @@ mod tests {
         let mut a = &mut v[0];
         a.remove(a.len()-1);
         a.push_str(" who saves the world.");
-        
         println!("{:?}", v);
     }
 

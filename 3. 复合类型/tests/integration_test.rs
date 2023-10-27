@@ -476,3 +476,143 @@ fn test20() {
     
     println!("{:?}", v);
 }
+
+#[test]
+fn test21() {
+    use std::collections::HashMap;
+
+    let mut book_reviews = HashMap::new();
+
+    book_reviews.insert( 
+        "Adventures of Huckleberry Finn".to_string(),
+        "My favorite book.".to_string(),
+    );
+    book_reviews.insert(
+        "Grimms' Fairy Tales".to_string(),
+        "Masterpiece.".to_string(),
+    );
+    book_reviews.insert(
+        "Pride and Prejudice".to_string(),
+        "Very enjoyable.".to_string(),
+    );
+    book_reviews.insert(
+        "The Adventures of Sherlock Holmes".to_string(),
+        "Eye lyked it alot.".to_string(),
+    );
+
+    println!("{:#?}", book_reviews);
+
+    if !book_reviews.contains_key("Les Misérables") {
+        println!("We've got {} reviews, but Les Misérables ain't one.", book_reviews.len());
+    }
+
+    book_reviews.remove("The Adventures of Sherlock Holmes");
+
+    println!("{:#?}", book_reviews);
+
+    let to_find = ["Pride and Prejudice", "Alice's Adventure in Wonderland"];
+    for &book in &to_find {
+        match book_reviews.get(book) {
+            Some(review) => println!("{book} : {review}"),
+            None => println!("{book} is unreviewed."),
+        }
+    }
+    //TODO: 
+    println!("Reivew for Jane: {}", book_reviews["Pride and Prejudice"]);
+
+    for (book, review) in &book_reviews {
+        println!("{book}: \"{review}\"")
+    }
+}
+
+fn random_stat_buff() -> u8 {
+    return 42;
+}
+
+#[test]
+fn test22() {
+    use std::collections::HashMap;
+
+    let mut player_stats = HashMap::new();
+
+    player_stats.entry("health").or_insert(100);
+
+    println!("{:#?}", player_stats);
+
+    player_stats.entry("defence").or_insert_with(random_stat_buff);
+
+    println!("{:#?}", player_stats);
+
+    let stat = player_stats.entry("attack").or_insert(100);
+    *stat += random_stat_buff();
+
+    println!("{:#?}", player_stats);
+    player_stats.entry("mana").or_insert(10);
+    player_stats.entry("mana").and_modify(|mana| *mana += 200).or_insert(100);
+    
+    println!("{:#?}", player_stats);
+}
+
+#[test]
+fn test23() {
+    use std::collections::HashMap;
+
+    let mut map = HashMap::new();
+    map.insert(1, "a");
+    assert_eq!(map.get(&1), Some(&"a"));
+    assert_eq!(map.get(&2), None);
+}
+
+#[test]
+fn test24() {
+    use std::collections::HashMap;
+
+    let mut map = HashMap::new();
+    map.insert(1, "a");
+    println!("{:#?}", map);
+
+    if let Some(x) = map.get_mut(&1) {
+        *x = "b";
+    }
+
+    println!("{:#?}", map);
+}
+
+#[test]
+fn test25() {
+    use std::collections::HashMap;
+
+    let map = HashMap::from([
+        ("a", 1),
+        ("b", 2),
+        ("c", 3),
+        ("c", 10),
+        ("d", 9),
+    ]);
+
+    for (key, val) in map.iter() {
+        println!("key: {key}, val: {val}");
+    }
+}
+
+#[test]
+fn test26() {
+    use std::collections::HashMap;
+
+    let mut map = HashMap::from([
+        ("a", 1),
+        ("b", 2),
+        ("c", 3),
+    ]);
+
+    for (_, val) in map.iter_mut() {
+        *val *= 2;
+    }
+
+    for (key, val) in &map {
+        println!("key: {key} <-> val: {val}");
+    }
+    for ele in map.into_iter() {
+        println!("{} <-> {}", ele.0, ele.1);
+    }
+}
