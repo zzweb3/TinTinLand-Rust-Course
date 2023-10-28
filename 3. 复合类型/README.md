@@ -20,9 +20,13 @@ xxxxxx
 ```
 </details>
 
-<details> <summary>View Code</summary>
-
-code ...
+<details> <summary>结构体定义</summary>
+struct User {
+    active: bool,
+    username: String,
+    email:String,
+    sign_in_count: u32,
+}
 
 </details>
 
