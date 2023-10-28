@@ -6,6 +6,12 @@ struct User {
     sign_in_count: u32,
 }
 
+#[derive(Debug)]
+struct Color(i32, i32, i32);
+
+#[derive(Debug)]
+struct Point(i32, i32, i32);
+
 /**
  * TODO: 第三课 复合类型-课堂笔记及思考题
  */
@@ -21,11 +27,68 @@ mod tests {
             email: String::from("someone@example.com"),
             sign_in_count:1,
         };
-        println!("user1更新前：{:#?}", user1);
+        println!("user1更新前=> {:#?}", user1);
         //更新
         user1.email = String::from("anotheremail@example.com");
-        println!("user1更新后：{:#?}", user1);
+        println!("user1更新后 => {:#?}", user1);
     }
+
+    #[test]
+    fn test1() {
+        let active = true;
+        let username = String::from("someusername123");
+        let email = String::from("someone@example.com");
+        let user1 = User{
+            active,
+            username,
+            email,
+            sign_in_count : 1,
+        };
+        println!("user1 => {:#?}", user1);
+    }
+
+    #[test]
+    fn test2() {
+        let active = true;
+        let username = String::from("someusername123");
+        let email = String::from("someone@example.com");
+        let user1 = User {
+            active,
+            username,
+            email,
+            sign_in_count: 1
+        };
+
+        println!("user1 => {:#?}", user1);
+
+        let user2 = User {
+            email: String::from("another@example.com"),
+            ..user1
+        };
+
+        //println!("user1 => {:#?}", user1); //TODO: user1 已被借用
+        println!("user2 => {:#?}", user2);
+    }
+
+    #[test]
+    fn test3() {
+        let black = Color(0, 0, 0);
+        let mut origin = Point(0, 1, 2);
+
+        println!("black => {:#?}", black);
+        println!("origin => {:#?}", origin);
+
+        println!("orgin修改前: origin.0 => {}, origin.1 => {}, , origin.2 => {}", origin.0, origin.1, origin.2);
+        origin.0 = 9;
+        origin.1 = 8;
+        origin.2 = 7;
+        println!("orgin修改后: origin.0 => {}, origin.1 => {}, , origin.2 => {}", origin.0, origin.1, origin.2);
+    }
+
+
+
+
+
 
     #[test]
     fn test2222() {

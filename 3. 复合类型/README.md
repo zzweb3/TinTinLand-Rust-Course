@@ -8,10 +8,11 @@ https://drive.google.com/file/d/1FhpFDCWFJ1uivmZWXu1TgpmJ6m-zFeHB/view
 复合类型也叫组合类型, Rust中的复合类型可以分为两大类；
 1. 结构体(structure type):多个类型组合在一起共同表达一个值的复杂数据结构
 2. 枚举(enum type), 即标签联合(tagged union),也叫不相交并集(disjoint union),可以存储一组不同但固定的类型中的某个类型的对象,具体是哪个类型由其标签决定。
-3. 
+
 ## 1、结构体(structure type)
 
-### 结构体定义及更新
+### 1.1 结构体
+#### 结构体定义及更新-例子
 ```rust
 //结构体定义
 struct User {
@@ -30,12 +31,79 @@ fn test0() {
         email: String::from("someone@example.com"),
         sign_in_count:1,
     };
-    println!("user1更新前：{:#?}", user1);
+    println!("user1更新前 => {:#?}", user1);
     //更新
     user1.email = String::from("anotheremail@example.com");
-    println!("user1更新后：{:#?}", user1);
+    println!("user1更新后 => {:#?}", user1);
+}
+
+#[test]
+fn test1() {
+    let active = true;
+    let username = String::from("someusername123");
+    let email = String::from("someone@example.com");
+    let user1 = User{
+        active,
+        username,
+        email,
+        sign_in_count : 1,
+    };
+    println!("user1 => {:#?}", user1);
+}
+
+#[test]
+fn test2() {
+    let active = true;
+    let username = String::from("someusername123");
+    let email = String::from("someone@example.com");
+    let user1 = User {
+        active,
+        username,
+        email,
+        sign_in_count: 1
+    };
+
+    println!("user1 => {:#?}", user1);
+
+    let user2 = User {
+        email: String::from("another@example.com"),
+        ..user1
+    };
+
+    //println!("user1 => {:#?}", user1); //TODO: user1 已被借用
+    println!("user2 => {:#?}", user2);
+}
+
+```
+### 1.1 元组结构体
+所谓元组结构体,也就是元组和结构体的结合体, 元组结构体有类型名,但是无字段名,也即字段是匿名的。
+
+#### 元组结构体-例子
+```rust
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+#[test]
+fn test3() {
+    let black = Color(0, 0, 0);
+    let mut origin = Point(0, 1, 2);
+
+    println!("black => {:#?}", black);
+    println!("origin => {:#?}", origin);
+
+    println!("orgin修改前: origin.0 => {}, origin.1 => {}, , origin.2 => {}", origin.0, origin.1, origin.2);
+    origin.0 = 9;
+    origin.1 = 8;
+    origin.2 = 7;
+    println!("orgin修改后: origin.0 => {}, origin.1 => {}, , origin.2 => {}", origin.0, origin.1, origin.2);
 }
 ```
+
+
+
+
+
+
 
 ## 2、枚举(enum type)
 
