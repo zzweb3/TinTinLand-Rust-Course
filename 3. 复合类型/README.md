@@ -7,14 +7,19 @@
 目录 ?????????
 
 ## 复合类型
-复合类型也叫组合类型, Rust中的复合类型可以分为两大类；
-1. 结构体(structure type):多个类型组合在一起共同表达一个值的复杂数据结构
-2. 枚举(enum type), 即标签联合(tagged union),也叫不相交并集(disjoint union),可以存储一组不同但固定的类型中的某个类型的对象,具体是哪个类型由其标签决定。
+> 复合类型也叫组合类型, Rust中的复合类型可以分为两大类；
+>> 1. 结构体(structure type): 多个类型组合在一起共同表达一个值的复杂数据结构
+>> 2. 枚举(enum type), 即标签联合(tagged union),也叫不相交并集(disjoint union), 可以存储一组不同但固定的类型中的某个类型的对象, 具体是哪个类型由其标签决定。
 
 ## 1、结构体(structure type)
 
 ### 1.1 结构体
 <details> <summary>结构体定义及更新-例子</summary>
+```rust
+xxxxxx
+```
+</details>
+
 ```rust
 //结构体定义
 struct User {
@@ -76,7 +81,7 @@ fn test2() {
     println!("user2 => {:#?}", user2);
 }
 ```
-</details>
+
 
 
 
