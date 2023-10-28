@@ -1,5 +1,5 @@
 # TinTinLand-Rust-Course
-TinTinLand Rust 课程笔记-复合类型
+> TinTinLand Rust 课程笔记-复合类型
 
 # 作业点评会 & Office Hour
 ## 课件ppt：
