@@ -139,7 +139,8 @@ struct Point4<X1, Y1> {
 }
 
 impl<X1, Y1> Point4<X1,Y1> {
-    fn mixup<X2,Y2>(self, other: Point4<X2, Y2>) -> Point4<X1, Y2> {
+    //TODO: 方法也是可以单独定义泛型的
+    fn mixup<X2,Y2>(self, other: Point4<X2, Y2>) -> Point4::<X1, Y2> {
         Point4 { 
             x: self.x, 
             y: other.y 
@@ -153,4 +154,180 @@ fn test6() {
     let o = Point4{x: 'A', y:"good"};
     let mix = p.mixup(o);
     println!("mix => {:?}", mix);
+}
+
+use std::fmt::Display;
+
+struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> {
+    fn new(x:T, y:T) -> Self {
+        Self { x, y}
+    }
+}
+
+impl<T> Pair<T> 
+where 
+    T: std::fmt::Display + std::cmp::PartialOrd
+{
+    fn cmp_display(&self) {
+        if self.x > self.y {
+            println!("The largest member is x = {}", self.x);
+        } else {
+            println!("The largest member is y = {}", self.y);
+        }
+    }
+}
+
+#[test]
+fn test7() {
+    let p = Pair::new(55, 10);
+    p.cmp_display();
+}
+
+trait Atr {
+    fn foo(&self);
+}
+
+struct Foo;
+
+impl Atr for Foo {
+    fn foo(&self) {
+        println!("666");
+    }
+}
+
+#[test]
+fn test8() {
+    let foo = Foo;
+    foo.foo();
+}
+
+trait StreamingIterator {
+    type Item;
+}
+
+#[derive(Debug)]
+struct Foo1<T>
+    where T: StreamingIterator<Item=String> 
+{
+    x: T
+}
+
+#[derive(Debug)]
+struct A;
+impl StreamingIterator for A {
+    type Item = String;
+}
+
+#[test]
+fn test9() {
+    //TODO: Foo1::<A>
+    let a = Foo1::<A> {
+        x: A
+    };
+    println!("{:#?}", a);
+}
+
+
+trait Animal {
+    fn talk(&self);
+}
+
+struct Cat {}
+struct Dog {}
+
+impl Animal for Cat {
+    fn talk(&self) {
+        println!("meow");
+    }
+}
+
+impl Animal for Dog {
+    fn talk(&self) {
+        println!("bark");
+    }
+}
+
+fn animal_talk (a: &dyn Animal) {
+    a.talk();
+}
+
+fn animal_talk1<T: Animal>(a: &T) {
+    a.talk();
+}
+
+fn animal_talk2 (a: Box<dyn Animal>) {
+    a.talk();
+}
+
+#[test]
+fn test10() {
+    let d = Dog{};
+    let c = Cat{};
+    animal_talk(&d);
+    animal_talk(&c);
+
+    animal_talk(&d);
+    animal_talk(&c);
+
+    let ans: Vec<&dyn Animal> = vec![&d, &c];
+    //println!("{:#?}", ans);
+
+    animal_talk2(Box::new(d));
+    animal_talk2(Box::new(c));
+}
+
+trait Animal1 {
+    fn nop(&self) {
+        println!("888");
+    }
+}
+
+struct Cat1 {}
+impl Animal1 for Cat1 {}
+
+#[test]
+fn test11() {
+    let c = Cat1{};
+    //let ct: &dyn Animal1 = &c;
+    c.nop();
+}
+
+struct Sheep {}
+struct Cow {}
+
+trait Animal2 {
+    fn noise(&self) -> &'static str;
+}
+
+impl Animal2 for Sheep {
+    fn noise(&self) -> &'static str {
+        "baaaaah!"
+    }
+}
+
+impl Animal2 for Cow {
+    fn noise(&self) -> &'static str {
+        "mooooooo!"
+    }
+}
+
+fn random_animal(random_number: f64) -> Box<dyn Animal2> {
+    if random_number < 0.5 {
+        Box::new(Sheep{})
+    } else {
+        Box::new(Cow{})
+    }
+}
+
+#[test]
+fn test12() {
+    //let random_number = 0.234;
+    let random_number = 1.234;
+    let animal = random_animal(random_number);
+    println!("You have randomly chosen an animal, and it says {}", animal.noise());
 }
