@@ -131,3 +131,26 @@ fn test5() {
     let p = Point3 {x:10.3, y:15.1};
     println!("{}", p.distance_from_origin());
 }
+
+#[derive(Debug)]
+struct Point4<X1, Y1> {
+    x: X1,
+    y: Y1,
+}
+
+impl<X1, Y1> Point4<X1,Y1> {
+    fn mixup<X2,Y2>(self, other: Point4<X2, Y2>) -> Point4<X1, Y2> {
+        Point4 { 
+            x: self.x, 
+            y: other.y 
+        }
+    }
+}
+
+#[test]
+fn test6() {
+    let p = Point4{x: 5, y: 20.5};
+    let o = Point4{x: 'A', y:"good"};
+    let mix = p.mixup(o);
+    println!("mix => {:?}", mix);
+}
