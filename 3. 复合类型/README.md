@@ -13,24 +13,9 @@
 
 ## 1、结构体(structure type)
 
-### 1.1 结构体
-<details> <summary>结构体定义及更新-例子</summary>
-```rust
-xxxxxx
-```
-</details>
+### 1.1 使用结构体组织关联数据
 
 <details> <summary>结构体定义</summary>
-
-```
-struct User {
-    active: bool,
-    username: String,
-    email:String,
-    sign_in_count: u32,
-}
-```
-</details>
 
 ```rust
 //结构体定义
@@ -93,6 +78,10 @@ fn test2() {
     println!("user2 => {:#?}", user2);
 }
 ```
+
+</details>
+
+
 
 
 
