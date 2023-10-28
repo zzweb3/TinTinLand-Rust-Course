@@ -4,7 +4,40 @@ TinTinLand Rust 课程笔记-复合类型
 ## 课件ppt：
 https://drive.google.com/file/d/1FhpFDCWFJ1uivmZWXu1TgpmJ6m-zFeHB/view
 
+## 复合类型
+复合类型也叫组合类型, Rust中的复合类型可以分为两大类；
+1. 结构体(structure type):多个类型组合在一起共同表达一个值的复杂数据结构
+2. 枚举(enum type), 即标签联合(tagged union),也叫不相交并集(disjoint union),可以存储一组不同但固定的类型中的某个类型的对象,具体是哪个类型由其标签决定。
+3. 
+## 1、结构体(structure type)
 
+### 结构体定义及更新
+```rust
+//结构体定义
+struct User {
+    active: bool,
+    username: String,
+    email:String,
+    sign_in_count: u32,
+}
+
+//结构体更新
+#[test]
+fn test0() {
+    let mut user1 = User {
+        active: true,
+        username: String::from("someusername123"),
+        email: String::from("someone@example.com"),
+        sign_in_count:1,
+    };
+    println!("user1更新前：{:#?}", user1);
+    //更新
+    user1.email = String::from("anotheremail@example.com");
+    println!("user1更新后：{:#?}", user1);
+}
+```
+
+## 2、枚举(enum type)
 
 
 ## 练习题目

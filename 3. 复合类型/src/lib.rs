@@ -1,3 +1,11 @@
+#[derive(Debug)]
+struct User {
+    active: bool,
+    username: String,
+    email:String,
+    sign_in_count: u32,
+}
+
 /**
  * TODO: 第三课 复合类型-课堂笔记及思考题
  */
@@ -6,7 +14,21 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test() {
+    fn test0() {
+        let mut user1 = User {
+            active: true,
+            username: String::from("someusername123"),
+            email: String::from("someone@example.com"),
+            sign_in_count:1,
+        };
+        println!("user1更新前：{:#?}", user1);
+        //更新
+        user1.email = String::from("anotheremail@example.com");
+        println!("user1更新后：{:#?}", user1);
+    }
+
+    #[test]
+    fn test2222() {
         let s1 = String::from("a superman.");
         let s2 = String::from("two superman.");
         let s3 = String::from("3 superman.");
@@ -22,7 +44,7 @@ mod tests {
     }
 
     #[test]
-    fn test1() {
+    fn test3333() {
         let s1 = String::from("a superman.");
         let s2 = String::from("two superman.");
         let s3 = String::from("3 superman.");
