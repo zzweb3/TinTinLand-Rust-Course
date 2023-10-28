@@ -21,13 +21,14 @@ xxxxxx
 </details>
 
 <details> <summary>结构体定义</summary>
+```
 struct User {
     active: bool,
     username: String,
     email:String,
     sign_in_count: u32,
 }
-
+```
 </details>
 
 ```rust
