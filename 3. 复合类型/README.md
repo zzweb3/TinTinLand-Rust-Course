@@ -21,6 +21,7 @@ xxxxxx
 </details>
 
 <details> <summary>结构体定义</summary>
+
 ```
 struct User {
     active: bool,
