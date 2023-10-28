@@ -6,11 +6,14 @@ TinTinLand Rust 课程笔记-复合类型
 https://drive.google.com/file/d/1FhpFDCWFJ1uivmZWXu1TgpmJ6m-zFeHB/view
 
 ## 目录
-1.  Foo
-2.  Bar
-    2.1.  Foofoo
-    2.2.  Barbar
-3.  Baz
+1. 他是猪吗？
+	1.1 是的，他情商太低
+	1.2 不是，他智商很高
+2. 我是狗吗？
+	2.1 是的，每天忙的累死累活(有序列表标记符号前有一个 Tab)
+	2.2 不是，要求高累点我乐意
+		2.2.1 不要想太多(有序列表标记符号前有两个 Tab)
+		2.2.2 成功有方法
 
 ## 复合类型
 复合类型也叫组合类型, Rust中的复合类型可以分为两大类；
