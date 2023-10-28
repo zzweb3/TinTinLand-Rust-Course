@@ -4,6 +4,13 @@ TinTinLand Rust 课程笔记-复合类型
 ## 课件ppt：
 https://drive.google.com/file/d/1FhpFDCWFJ1uivmZWXu1TgpmJ6m-zFeHB/view
 
+## 目录
+1.  Foo.
+1.  Bar.
+    1.  Foofoo.
+    1.  Barbar.
+1.  Baz.
+
 ## 复合类型
 复合类型也叫组合类型, Rust中的复合类型可以分为两大类；
 1. 结构体(structure type):多个类型组合在一起共同表达一个值的复杂数据结构
