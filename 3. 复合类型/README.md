@@ -73,9 +73,9 @@ fn test2() {
     //println!("user1 => {:#?}", user1); //TODO: user1 已被借用
     println!("user2 => {:#?}", user2);
 }
-
 ```
-### 1.1 元组结构体
+
+### 1.2 元组结构体（tuple structs）
 所谓元组结构体,也就是元组和结构体的结合体, 元组结构体有类型名,但是无字段名,也即字段是匿名的。
 
 #### 元组结构体-例子
@@ -99,9 +99,20 @@ fn test3() {
 }
 ```
 
+### 1.3 单元结构体（unit-like structs）
+单元结构体就是只有一个类型名字,没有任何字段的结构体。定义和创建实例时连后面的花括号都可以省略。
+如果想要在某种类型上实现trait功能，但不需要在类型中存储数据时使用。
+TODO: 待补充案例！！！
+#### 单元结构体-例子
+```rust
+struct ArticleModule;
+
+fn main() {
+    let module = ArticleModule;
+}
 
 
-
+```
 
 
 
