@@ -20,6 +20,12 @@ xxxxxx
 ```
 </details>
 
+<details> <summary>View Code</summary>
+
+code ...
+
+</details>
+
 ```rust
 //结构体定义
 struct User {
