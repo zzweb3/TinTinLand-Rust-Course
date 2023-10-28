@@ -12,7 +12,7 @@ https://drive.google.com/file/d/1FhpFDCWFJ1uivmZWXu1TgpmJ6m-zFeHB/view
 ## 1、结构体(structure type)
 
 ### 1.1 结构体
-#### 结构体定义及更新-例子
+<details> <summary>结构体定义及更新-例子</summary>
 ```rust
 //结构体定义
 struct User {
@@ -74,6 +74,9 @@ fn test2() {
     println!("user2 => {:#?}", user2);
 }
 ```
+</details>
+
+
 
 ### 1.2 元组结构体（tuple structs）
 所谓元组结构体,也就是元组和结构体的结合体, 元组结构体有类型名,但是无字段名,也即字段是匿名的。
