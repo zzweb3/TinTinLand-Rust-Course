@@ -9,7 +9,7 @@ https://drive.google.com/file/d/1FhpFDCWFJ1uivmZWXu1TgpmJ6m-zFeHB/view
 1.  Foo.
 2.  Bar.
     2.1.  Foofoo.
-    2.2  Barbar.
+    2.2.  Barbar.
 3.  Baz.
 
 ## 复合类型
