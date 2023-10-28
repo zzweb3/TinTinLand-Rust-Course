@@ -15,7 +15,7 @@
 
 ### 1.1 使用结构体组织关联数据
 
-<details> <summary>结构体定义</summary>
+<details> <summary>结构体定义及更新</summary>
 
 ```rust
 //结构体定义
@@ -78,18 +78,14 @@ fn test2() {
     println!("user2 => {:#?}", user2);
 }
 ```
-
 </details>
 
 
-
-
-
-
 ### 1.2 元组结构体（tuple structs）
-所谓元组结构体,也就是元组和结构体的结合体, 元组结构体有类型名,但是无字段名,也即字段是匿名的。
+> 元组结构体,是元组和结构体的结合体, 元组结构体有类型名,但是无字段名,也即字段是匿名的。
 
-#### 元组结构体-例子
+<details> <summary>元组结构体定义及更新</summary>
+
 ```rust
 struct Color(i32, i32, i32);
 struct Point(i32, i32, i32);
@@ -103,12 +99,14 @@ fn test3() {
     println!("origin => {:#?}", origin);
 
     println!("orgin修改前: origin.0 => {}, origin.1 => {}, , origin.2 => {}", origin.0, origin.1, origin.2);
-    origin.0 = 9;
+    origin.0 = 9;   //TODO: 更新元组结构体
     origin.1 = 8;
     origin.2 = 7;
     println!("orgin修改后: origin.0 => {}, origin.1 => {}, , origin.2 => {}", origin.0, origin.1, origin.2);
 }
 ```
+</details>
+
 
 ### 1.3 单元结构体（unit-like structs）
 单元结构体就是只有一个类型名字,没有任何字段的结构体。定义和创建实例时连后面的花括号都可以省略。
@@ -124,7 +122,6 @@ fn main() {
 
 
 ```
-
 
 
 ## 2、枚举(enum type)
