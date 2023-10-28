@@ -1,16 +1,16 @@
 # TinTinLand-Rust-Course
 TinTinLand Rust 课程笔记-复合类型
 
+# 作业点评会 & Office Hour
 ## 课件ppt：
 https://drive.google.com/file/d/1FhpFDCWFJ1uivmZWXu1TgpmJ6m-zFeHB/view
 
-# 作业点评会 & Office Hour
 ## 目录
 1.  Foo.
-1.  Bar.
-    1.  Foofoo.
-    1.  Barbar.
-1.  Baz.
+2.  Bar.
+    2.1.  Foofoo.
+    2.2  Barbar.
+3.  Baz.
 
 ## 复合类型
 复合类型也叫组合类型, Rust中的复合类型可以分为两大类；
