@@ -1,7 +1,7 @@
 
 mod level_1;
 
-use level_1::just_test_mod;
+pub use level_1::level_1_mod;
 
 /**
  * 创建一个Rust工程
@@ -12,9 +12,6 @@ use level_1::just_test_mod;
  */
 
  fn main() {
-    level_1::print_a_to_Z();
-    level_1::level_2::print_A_to_z();
-
-    //测试一下
-    just_test_mod::just_test_innermod_fun();
+    level_1_mod::print_a_to_Z();
+    level_1::level_2::level_2_mod::print_A_to_z();
 }

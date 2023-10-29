@@ -7,3 +7,9 @@ pub fn print_a_to_Z() {
     }
     println!();
 }
+
+pub mod just_test_mod {
+    pub fn just_test_innermod_fun() {
+        println!("just_test_innermod_fun");
+    }
+}
