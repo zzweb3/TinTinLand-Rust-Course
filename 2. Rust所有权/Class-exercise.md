@@ -147,8 +147,9 @@ after c: 100
 >>> 正确答案：C 
 
  
-考察点对内存的理解（选择题比较难体现出来）
-![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png "RUNOOB")
+>考察点对内存的理解（选择题比较难体现出来）
+>
+![题目4的内存草图 图标](https://github.com/guozhouwei/TinTinLand-Rust-Course/blob/main/2.%20Rust%E6%89%80%E6%9C%89%E6%9D%83/images/exercise01.jpeg "内存草图")
 讲解视频：https://www.bilibili.com/video/BV1Np4y1P78z?p=28&vd_source=c591c8fa7c4af6fd760fcdf31da64702
 
 
