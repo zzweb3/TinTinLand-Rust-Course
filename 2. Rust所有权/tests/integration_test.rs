@@ -85,3 +85,28 @@ fn extend_tup1(mut tup : (i32, f64, char, &str)) -> (i32, f64, char, &str) {
     tup.3 = "한국어!";
     tup
 } 
+
+#[test]
+fn test7() {
+    let s = "I am Superman!";
+    let s1 = s.to_string();
+    let s2 = &s1;
+    println!("s: {}", s);
+    println!("s1: {}", s1);
+    println!("s2: {}", s2);
+}
+
+#[test]
+fn test8() {
+    let s = String::from("你好中国");
+    let s1 = &s[0..3];
+    println!("s1: {}", s1);
+}
+
+#[test]
+fn test9() {
+    let s = String::from("I am Superman!");
+    let s1 = &s[0..1];
+    println!("s: {}", s);
+    println!("s1: {}", s1);
+}
