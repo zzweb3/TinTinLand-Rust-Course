@@ -102,3 +102,53 @@ slice: ll
 ```
 
 >>> 正确答案：A 
+
+
+___
+
+## 题目4: 下面程序执行后输出什么结果？
+```rust
+#[test]
+fn test2() {
+    let a = 10;
+    let b = &a;
+    let mut c = &b;
+    let d = b;
+
+    println!("before c: {}", c);
+
+    let e = &&100;
+    c = e;
+
+    println!("a: {}", a);
+    println!("after c: {}", c);
+}
+```
+
+请选择答案：
+
+> A: 
+> 编译错误！
+ 
+> B:
+```rust
+before c: 10
+a: 10
+after c: 10
+```
+
+> C:
+```rust
+before c: 10
+a: 10
+after c: 100
+```
+
+>>> 正确答案：C 
+
+ 
+考察点对内存的理解（选择题比较难体现出来）
+![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png "RUNOOB")
+讲解视频：https://www.bilibili.com/video/BV1Np4y1P78z?p=28&vd_source=c591c8fa7c4af6fd760fcdf31da64702
+
+
