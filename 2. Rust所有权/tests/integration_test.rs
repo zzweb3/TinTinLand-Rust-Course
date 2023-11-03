@@ -99,7 +99,7 @@ fn test7() {
 #[test]
 fn test8() {
     let s = String::from("你好中国");
-    let s1 = &s[0..3];
+    let s1 = &s[0..2];
     println!("s1: {}", s1);
 }
 
@@ -126,7 +126,7 @@ fn test11() {
     let message = String::from("Hello");
     let slice = &message[2..4];
 
-    move_me(message);
+    //move_me(message);
 
     println!("slice: {}", slice);
 }
