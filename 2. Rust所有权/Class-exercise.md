@@ -53,6 +53,7 @@ fn test() {
 }
 ```
 请选择答案：
+
 > A: 
 > 编译错误！
  
@@ -70,4 +71,34 @@ s1: 你好
 
 ___
 
+## 题目3: 下面程序执行后输出什么结果？
+```rust
+#[test]
+fn test() {
+    let message = String::from("Hello");
+    let slice = &message[2..4];
 
+    move_me(message);
+
+    println!("slice: {}", slice);
+}
+
+fn move_me(val: String) { }
+```
+
+请选择答案：
+
+> A: 
+> 编译错误！
+ 
+> B:
+```rust
+slice: llo
+```
+
+> C:
+```rust
+slice: ll
+```
+
+>>> 正确答案：A 

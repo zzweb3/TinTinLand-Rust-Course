@@ -119,3 +119,16 @@ fn test10() {
         println!("{}, length={}, s.len={}", c, c.len_utf8(), s.len());
     }
 }
+
+
+#[test]
+fn test11() {
+    let message = String::from("Hello");
+    let slice = &message[2..4];
+
+    move_me(message);
+
+    println!("slice: {}", slice);
+}
+
+fn move_me(val: String) { }
