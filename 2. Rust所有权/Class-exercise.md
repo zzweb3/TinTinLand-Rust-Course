@@ -18,19 +18,22 @@ fn extend_tup1(mut tup : (i32, f64, char, &str)) -> (i32, f64, char, &str) {
 } 
 ```
 请选择答案：
-A: 编译错误！
-B:
+> A: 编译错误！
+> B:
 ```rust
 tup_1: (10, 30.2, 'A', "I am Superman!")
 tup_2: (10, 30.2, 'A', "I am Superman!")
 ```
-C:
+> C:
 ```rust
 tup_1: (10, 30.2, 'A', "I am Superman!")
 tup_2: (-100, 3.141592, 'A', "한국어!")
 ```
-D:
+> D:
 ```rust
 tup_1: (10, 30.2, 'A', "I am Superman!")
 tup_2: (-100, 3.141592, 'A', "I am Superman!")
 ```
+
+正确答案：C
+
