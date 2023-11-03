@@ -1,7 +1,7 @@
 
 mod level_1;
-
-pub use level_1::level_1_mod;
+use level_1::level_1_mod as mod1;
+use level_1::level_2::level_2_mod as mod2;
 
 /**
  * 创建一个Rust工程
@@ -10,8 +10,7 @@ pub use level_1::level_1_mod;
  *（3）使用Cargo编译运行此工程
  *（需要自行发现其中的细节，一个考点是：ascii码字符的顺序）
  */
-
  fn main() {
-    level_1_mod::print_a_to_Z();
-    level_1::level_2::level_2_mod::print_A_to_z();
+    mod1::print_a_to_Z();
+    mod2::print_A_to_z();
 }

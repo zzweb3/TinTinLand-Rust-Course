@@ -1,5 +1,5 @@
 pub mod level_2;
-pub use level_2::level_2_mod;
+pub use level_2::level_2_mod as mod2;
 
 pub mod level_1_mod {
     pub fn print_a_to_Z() {
