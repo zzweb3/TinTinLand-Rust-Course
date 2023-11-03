@@ -110,3 +110,12 @@ fn test9() {
     println!("s: {}", s);
     println!("s1: {}", s1);
 }
+
+#[test]
+fn test10() {
+    let s = String::from("a好");
+    
+    for c in s.chars() {
+        println!("{}, length={}, s.len={}", c, c.len_utf8(), s.len());
+    }
+}
