@@ -132,3 +132,56 @@ fn test11() {
 }
 
 fn move_me(val: String) { }
+
+#[test]
+fn test12() {
+    let mut x = String::from("TintinlandRust入门");
+    x.push_str(", 第二节课回顾");
+
+    println!("x: {}", x);
+}                               //一个拥有所有权的变量作用域是从他定义时到花括号结束。
+
+#[test]
+fn test13() {
+    let mut x = String::from("TintinlandRust入门");
+
+    let mut x2 = x; // move
+
+    //x.push_str(", 第二节课回顾");   //x 失效
+
+    x2.push_str(", 第二节课回顾");
+
+    println!("x2: {}", x2);
+} 
+
+#[test]
+fn test14() {
+    let mut x = String::from("TintinlandRust入门");
+
+    let mut x2 = x.clone(); // clone
+
+    println!("x: {}", x);
+    println!("x2: {}", x2);
+} 
+
+#[test]
+fn test15() {
+    let s = 123456_i32;
+    let s1 = s;
+
+    println!("s: {}", s);
+    println!("s1: {}", s1);
+} 
+
+#[test]
+fn test16() {
+    let mut s = String::from("Rust");
+    //let r1 = &s;
+    //let r2 = &s;
+    let r3 = &mut s;
+    {
+        let r4 = &mut s;
+    }
+
+    println!("{}", r3);
+} 
