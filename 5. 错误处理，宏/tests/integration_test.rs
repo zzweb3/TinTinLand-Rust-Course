@@ -259,7 +259,6 @@ macro_rules! calculate {
     }
 }
 
-
 #[test]
 fn test15() {
     calculate! {
@@ -267,7 +266,7 @@ fn test15() {
     }
 
     calculate! {
-        eval (1 + 2) * (3 / 4)
+        eval (1 + 2) * (5 / 3)
     }
 }
 //------------------16----------------//
