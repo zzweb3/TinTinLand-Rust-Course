@@ -245,4 +245,16 @@ mod tests {
         println!("{s1}");
     }
 
+    #[test]
+    fn test21() {
+        let s1 = String::from("I am a superman.");
+        let s2 = &s1;
+        let s3 = &s1[..5];
+        let s4: &str = &s1;
+        println!("{s1}");
+        println!("{s2}");
+        println!("{s3}");
+        println!("{s4}");
+    }
+
 }
