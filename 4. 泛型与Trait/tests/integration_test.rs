@@ -12,14 +12,13 @@ fn largest_i32(list: Vec<i32>) -> i32 {
 
 fn largest_char(list: Vec<char>) -> char {
     let mut largest = list[0];
-    for item in list {cd
+    for item in list {
         if item > largest {
             largest = item;
         }
     }
     largest
 }
-
 
 #[test]
 fn test0() {
@@ -232,7 +231,6 @@ fn test9() {
     println!("{:#?}", a);
 }
 
-
 trait Animal {
     fn talk(&self);
 }
@@ -280,6 +278,31 @@ fn test10() {
     animal_talk2(Box::new(d));
     animal_talk2(Box::new(c));
 }
+
+//------------
+trait Atr1 {
+    fn xxx(self);
+    fn foo(&self);
+}
+
+struct Foo2;
+
+impl Atr1 for Foo2 {
+    fn xxx(self) {
+        println!("xxx");
+    }
+    fn foo(&self) {
+        println!("666");
+    }
+}
+
+#[test]
+fn test10_1() {
+    let foo2 = Foo2;
+    foo2.foo();
+    foo2.xxx();
+}
+//-----------------
 
 trait Animal1 {
     fn nop(&self) {
@@ -330,4 +353,66 @@ fn test12() {
     let random_number = 1.234;
     let animal = random_animal(random_number);
     println!("You have randomly chosen an animal, and it says {}", animal.noise());
+}
+
+#[test]
+fn test13() {
+    let a = "xxxx";
+    let aa = &a;
+    let ref aaa = a;
+    println!("{}", aaa);
+}
+//-------------test14--------------//
+use std::io::Read;
+use std::io::Result as IOResult;
+struct  Foo3 {
+    name: String
+}
+
+struct  Bar {
+    age: u8
+}
+
+impl Read for Foo3 {
+    fn read(&mut self, buf: &mut [u8]) -> IOResult<usize> {
+        //self.read(buf)
+        IOResult::Ok(888)
+    }
+}
+
+impl Read for Bar {
+    fn read(&mut self, buf: &mut [u8]) -> IOResult<usize> {
+        IOResult::Ok(666)
+    }
+}
+
+enum Wrapper {
+    Foo3ccc(Foo3),
+    Barccc(Bar),
+}
+
+impl Read for Wrapper {
+    fn read(&mut self, buf: &mut [u8]) -> IOResult<usize> {
+        match *self {
+            Wrapper::Foo3ccc(ref mut foo) => foo.read(buf),
+            Wrapper::Barccc(ref mut bar) => bar.read(buf),
+        }
+    }
+}
+
+#[test]
+fn test14() {
+    let mut v: Vec<u8> = vec![1,2,3,4,5];
+    let bar = Bar {
+        age:20,
+    };
+    let bar_read = Wrapper::Barccc(bar).read(&mut v);
+    println!("bar_read => {:#?}", bar_read);
+    //
+    let foo3 = Foo3 {
+        name: "foo3".to_string(),
+    };
+    let foo3_read = Wrapper::Foo3ccc(foo3).read(&mut v);
+    println!("foo3_read => {:#?}", foo3_read);
+
 }

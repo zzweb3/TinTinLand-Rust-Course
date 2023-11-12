@@ -132,8 +132,10 @@ fn test00() {
             width: 30,
             height: 50,
         };
-        println!("The n times area of the rectangle is {} square pixels.", rect1.area1(5));
-        //println!("The n times area of the rectangle is {} square pixels.", rect1.area1(5));
+        println!("The n times area of the rectangle is {} square pixels.", 
+            rect1.area1(5)
+        );
+        //println!("The n times area of the rectangle is {} square pixels.", rect1.area2(5));
         //println!("The n times area of the rectangle is {} square pixels.", rect1.area3(5));
     }
 
@@ -195,7 +197,40 @@ fn test6() {
     println!("xx: {}", xx);
 }
 
+//--------------------Newtype模式---------------------//
+struct Years(i64);
 
+struct Days(i64);
+
+impl Years {
+    pub fn to_days(&self) -> Days {
+        Days(self.0 * 365)
+    }
+}
+
+
+impl Days {
+    /// 舍去不满一年的部分
+    pub fn to_years(&self) -> Years {
+        Years(self.0 / 365)
+    }
+}
+
+fn old_enough(age: &Years) -> bool {
+    age.0 >= 18
+}
+
+#[test]
+fn test6_1() {
+    let age = Years(5);
+    println!("{}", age.0);
+    let age_days = age.to_days();
+    println!("Old enough {}", old_enough(&age));
+    println!("Old enough {}", old_enough(&age_days.to_years()));
+    // println!("Old enough {}", old_enough(&age_days));
+}
+
+//--------------------enum---------------------//
 #[derive(Debug)]
 enum WebEvent{
     //An 'enum' variant may either be 'unit-like'
@@ -217,11 +252,11 @@ fn test7() {
     let d = WebEvent::Paste(String::from("batman"));
     let e = WebEvent::Click { x: 320, y: 240 };
     
-    println!("WebEvent a: {:?}", a);
-    println!("WebEvent b: {:?}", b);
-    println!("WebEvent c: {:?}", c);
-    println!("WebEvent d: {:?}", d);
-    println!("WebEvent e: {:?}", e);
+    println!("WebEvent a: {:#?}", a);
+    println!("WebEvent b: {:#?}", b);
+    println!("WebEvent c: {:#?}", c);
+    println!("WebEvent d: {:#?}", d);
+    println!("WebEvent e: {:#?}", e);
 }
 
 enum Number {
@@ -238,20 +273,27 @@ enum Color1 {
 
 #[test]
 fn test8() {
+    let x = Number::Zero;
+    println!("{}", x as i32);
     println!("Zero is {}", Number::Zero as i32);
     println!("One is {}", Number::One as i32);
     
     println!("rose are #{:06x}", Color1::Red as i32);
     println!("violets are #{:06x}", Color1::Blue as i32);
     println!("violets are {:?}", Color1::Blue as i32);
-
-    
 }
 
 enum Foo{}
+impl Foo {
+    fn run() -> String {
+        String::from("空枚举")
+    }
+}
 #[test]
 fn test9() {
     //let a = Foo;
+    let x = Foo::run();
+    println!("{}", x)
 }
 
 enum VeryVerboseEnumOfThingsToDoWithNumbers{
@@ -333,6 +375,16 @@ fn test12() {
     let r = value_in_cents(b);
 
     println!("{}", r);
+    
+    //
+    let us_state = UsState::Alabama;
+    let coin = Coin::Quarter(us_state);
+    let mut count = 0;
+    if let Coin::Quarter(state) = coin {
+        println!("State quarter from {:?}!", state);
+    } else {
+        count += 1;
+    }
 }
 
 #[test]
@@ -356,7 +408,7 @@ fn test14() {
     let a = (1, 2, 'a');
     let (b, c, d) = a;
 
-    println!("{:?}", a);
+    println!("{:#?}", a);
     println!("{}", b);
     println!("{}", c);
     println!("{}", d);
@@ -374,6 +426,7 @@ fn test15() {
     println!("{}", d);
 }
 
+#[derive(Debug)]
 struct User1 {
     name: String,
     age: u32,
@@ -395,6 +448,7 @@ fn test16() {
     println!("name: {}", name);
     println!("age: {}", age);
     println!("student: {}", student);
+    //println!("a: {:#?}", a);
 }
 
 fn foo1((a, b, c) : (u32, u32, char)) {
@@ -441,6 +495,7 @@ fn foo_2(s: &[u32]) {}
 #[test]
 fn test19() {
     let s = String::from("aaa");
+    let a = &s;
     foo_1(&s);
     foo_1("888999ddd"); //&str
 
@@ -547,7 +602,7 @@ fn test22() {
     *stat += random_stat_buff();
 
     println!("{:#?}", player_stats);
-    player_stats.entry("mana").or_insert(10);
+    //player_stats.entry("mana").or_insert(10);
     player_stats.entry("mana").and_modify(|mana| *mana += 200).or_insert(100);
     
     println!("{:#?}", player_stats);
@@ -604,15 +659,29 @@ fn test26() {
         ("b", 2),
         ("c", 3),
     ]);
+    for (key, val) in &map {
+        println!("开始=> key: {key} <-> val: {val}");
+    }
 
     for (_, val) in map.iter_mut() {
         *val *= 2;
     }
 
     for (key, val) in &map {
-        println!("key: {key} <-> val: {val}");
+        println!("中间=> key: {key} <-> val: {val}");
     }
     for ele in map.into_iter() {
-        println!("{} <-> {}", ele.0, ele.1);
+        println!("最后=> {} <-> {}", ele.0, ele.1);
     }
+}
+
+#[test]
+fn test27() {
+    let v1 = vec![1, 2, 3];
+    let mut v1_iter = v1.iter();
+
+    assert_eq!(v1_iter.next(), Some(&1));
+    assert_eq!(v1_iter.next(), Some(&2));
+    assert_eq!(v1_iter.next(), Some(&3));
+    assert_eq!(v1_iter.next(), None);
 }
