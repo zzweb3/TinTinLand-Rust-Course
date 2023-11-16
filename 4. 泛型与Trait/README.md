@@ -42,8 +42,10 @@ https://drive.google.com/file/d/1MHGA5W1_T9OW_zMUBPFcW2DM2wRkRt9O/view
 ```
 >> 答案：
 > A 编译错误
+> 
 > B Meow!
 >   Bark!
+> 
 > C 运行错误
 >
 > > 正确答案：A
