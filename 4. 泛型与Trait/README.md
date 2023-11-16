@@ -42,13 +42,18 @@ https://drive.google.com/file/d/1MHGA5W1_T9OW_zMUBPFcW2DM2wRkRt9O/view
 ```
 > >答案：
 >
-> A 编译错误
+> A 
 > 
-> B Meow!
+> 编译错误
 > 
->   Bark!
+> B 
+> 
+> Meow!
+> 
+> Bark!
 > 
 > C 运行错误
+>
 >
 > > 正确答案：A
 > 
@@ -97,13 +102,20 @@ https://drive.google.com/file/d/1MHGA5W1_T9OW_zMUBPFcW2DM2wRkRt9O/view
 
 >> 答案：
 >
-> A 编译错误
+> A 
 > 
-> B Meow!
+> 编译错误
+>
 > 
->   Bark!
+> B 
+> Meow!
 > 
-> C 运行错误
+> Bark!
+> 
+> C 
+> 
+> 运行错误
+>
 >
 > 正确答案：A 
 > 
