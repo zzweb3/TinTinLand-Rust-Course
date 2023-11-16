@@ -40,7 +40,7 @@ https://drive.google.com/file/d/1MHGA5W1_T9OW_zMUBPFcW2DM2wRkRt9O/view
         animal_talk(d);
     }
 ```
-> >答案：
+>>答案：
 >
 > A 
 > 
@@ -57,7 +57,8 @@ https://drive.google.com/file/d/1MHGA5W1_T9OW_zMUBPFcW2DM2wRkRt9O/view
 >   运行错误
 >
 >
-> > 正确答案：A
+>>
+>> 正确答案：A
 > 
 > 原因: &dyn Animal，不能获取所有权
 
@@ -120,6 +121,7 @@ https://drive.google.com/file/d/1MHGA5W1_T9OW_zMUBPFcW2DM2wRkRt9O/view
 >   运行错误
 >
 >
+>>
 > 正确答案：A 
 > 
 > 原因: Box::new()可以获取所有权
