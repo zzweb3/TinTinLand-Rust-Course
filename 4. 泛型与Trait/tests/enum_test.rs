@@ -22,8 +22,8 @@ fn print_greeting_static<G: Greeting>(g: G) {
 fn print_greeting_dynamic(g: Box<dyn Greeting>) {
     println!("{}", g.greeting());
 }
-
-fn main() {
+#[test]
+fn test () {
     print_greeting_static(Cat);
     print_greeting_static(Dog);
     
